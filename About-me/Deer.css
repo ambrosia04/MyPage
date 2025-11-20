@@ -1,0 +1,48 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #441104;
+    background-image: url('deer_texture.png');
+    background-size: cover;
+    font-family: sans-serif;
+    color: #f0e6dd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 60px 20px 20px;
+}
+
+.back-arrow {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    font-size: 1.2rem;
+    color: white;
+    text-decoration: none;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 8px 15px;
+    border-radius: 20px;
+    transition: background-color 0.3s;
+}
+
+.back-arrow:hover {
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.content {
+    max-width: 70%;
+    text-align: center;
+}
+
+.content p {
+    font-size: 1.5rem;
+    color: #77c974;
+    line-height: 1.7;
+    text-shadow: 1px 1px 3px rgba(3, 27, 3, 0.5);
+}

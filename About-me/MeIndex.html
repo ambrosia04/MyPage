@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marta Granado's page</title>
+    <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="MeIndex.css">
+</head>
+<body>
+
+    <img src="aboutmeBG.jpg" alt="Background forest" class="background">
+
+    <!-- ===== START: Cloud Dialogue Addition ===== -->
+    <div class="cloud-container">
+        <img src="Cloud_Dialogue.png" alt="Dialogue cloud" class="cloud-image">
+        <div class="cloud-text">
+            <!-- Text without <br> tags for natural wrapping -->
+            <p>I’m a software engineer who believes that programming is the perfect blend of logic, creativity, and collaboration—turning ideas into something tangible and impactful. <br>
+                I enjoy writing clean, functional code and thrive in team environments where knowledge sharing and continuous improvement are key. <br>
+                I’m especially motivated by projects that contribute to something meaningful while fostering both technical and personal growth. <br>
+                I enjoy working with people and have experience with Python, HTML, CSS, Tailwind, JavaScript, React, MongoDB, SQL, Java, C, Jira, Trello, Cypress, Selenium...<br>
+            </p>
+        </div>
+    </div>
+    <!-- ===== END: Cloud Dialogue Addition ===== -->
+
+    <nav class="navbar">
+        <div class="nav-brand">About me</div>
+        <input type="checkbox" id="toggle-menu">
+        <label for="toggle-menu" class="hamburger">&#9776;</label>
+
+        <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../Experience/expIndex.html">Experience</a></li>
+            <li><a href="../Portfolio/PortfolioIndex.html">Portfolio</a></li>
+            <li><a href="../Contact/ContactIndex.html">Contact</a></li>
+        </ul>
+
+        <div class="volume-control">
+            <span id="volume-icon" for="volume">🔊</span>
+            <input type="range" id="volume" min="0" max="1" step="0.01">
+        </div>
+    </nav>
+
+    <!-- This main tag wraps the content that will be animated -->
+    <main class="page-content">
+        <div class="deer-container">
+            <!-- The deer image has an ID so our JavaScript can find it -->
+            <img src="deer_Box.png" alt="A mysterious deer box" id="deer-box-image">
+        </div>
+    </main>
+
+    <audio id="bg-music" src="../birds-ambiance.mp3" autoplay loop></audio>
+    
+    <!-- Link to your JavaScript file at the end of the body -->
+    <script src="MeIndex.js"></script>
+</body>
+</html>

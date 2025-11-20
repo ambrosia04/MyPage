@@ -1,0 +1,277 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #668f50; /* fallback for old browsers */
+    background-image: linear-gradient(to bottom right, #98d998, #0f2303);
+    color: #330b25;
+    font-family: Arial, sans-serif;
+}
+#title{
+    padding-bottom: -10%;
+}
+
+/* Volume Control Icon */
+#volume-control {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 10;
+    cursor: pointer;
+}
+
+#volume-icon {
+    width: 40px;
+    height: 40px;
+    object-fit: contain; /* keeps aspect ratio */
+    cursor: pointer;
+    display: inline-block;
+     filter: drop-shadow(0 0 2px rgb(191, 232, 187)) drop-shadow(0 0 2px rgb(191, 232, 187));
+}
+
+/* Base frame style */
+.leaf-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    z-index: 1;
+
+    opacity: 0;
+    transform: scale(2.5);
+    transition: transform 2s ease-out, opacity 2s ease-out;
+}
+
+/* Fade-in effect on load */
+body.loaded .leaf-frame {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* --- Responsive image switching --- */
+@media (orientation: portrait) {
+    .leaf-frame {
+        content: url("leaves_vertical.png");
+        opacity: 40%;
+    }
+}
+
+@media (orientation: landscape) {
+    .leaf-frame {
+        content: url("leaves.png");
+    }
+}
+
+/* Main content stays on top */
+#main-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#main-content h1 {
+    font-size: 3.5em;
+    margin-bottom: 20px;
+}
+
+#main-content p {
+    font-size: 1.3em;
+    margin-bottom: 30px;
+}
+
+button {
+    background-color: #a982b3;
+    border: none;
+    color: white;
+    padding: 20px 40px; /* bigger button */
+    font-size: 20px; /* bigger text */
+    cursor: pointer;
+    border-radius: 15px;
+    width: 180px; /* wider */
+    height: 70px; /* taller */
+    display: flex; /* centers text */
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+
+button a {
+    color: white;
+    text-decoration: none;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button:hover {
+    background-color: #7e5a85; /* darker on hover */
+}
+
+
+.profile-wrapper {
+    position: relative;
+    width: 220px;
+    margin-bottom: 20px;
+    margin-top: -5%;
+}
+
+
+.profile-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;  /* shows your exact rectangle shape */
+    display: block;
+}
+
+.profile-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* frame doesn't block clicks */
+    scale: 1.7;
+}
+
+
+/* --- Desktop Navigation Styles --- */
+.desktop-nav {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.side-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.side-buttons button a{
+    color: #330b25
+}
+
+.left-buttons {
+    position: absolute;
+    left: 20%; 
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.right-buttons {
+    position: absolute;
+    right: 20%; 
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.left-buttons,
+.right-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 150px;
+    pointer-events: auto; /* re-enable buttons */
+}
+
+
+/* --- Mobile/Tablet Navigation Styles --- */
+#navbar {
+    display: none; /* Hidden by default on desktop */
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap; /* Allows buttons to wrap on very small screens */
+    gap: 15px; /* Added a bit more space for tablet view */
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* --- Media Query for Mobile & Tablets --- */
+/* This now includes phones, tablets, and smart displays */
+@media (max-width: 1280px) {
+    .desktop-nav {
+        display: none; /* Hide side buttons */
+    }
+
+    #navbar {
+        display: flex; /* Show the navbar */
+    }
+
+    #navbar button {
+        width: 160px; /* A fixed width can look nice on tablets */
+        height: 60px;
+        padding: 10px 15px;
+        font-size: 18px; /* Slightly larger font for tablets */
+    }
+
+    #main-content h1 {
+        font-size: 3em; /* Adjust title for mid-sized screens */
+    }
+
+    #main-content p {
+        font-size: 1.2em;
+    }
+}
+
+.volume-control {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-left: 15px;
+}
+
+.volume-control input {
+    width: 80px;
+}
+
+/* Default (desktop) */
+.phrase {
+    font-size: clamp(1em, 2.5vw, 1.5em);
+    max-width: 800px;
+    line-height: 1.4;
+    margin-top: 15px;
+    margin-bottom: 40px;
+}
+
+.phrase p {
+    text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Tablet & mid-size screens */
+@media (max-width: 1280px) {
+    .phrase {
+        font-size: 1.3em;
+    }
+}
+
+/* Mobile screens */
+@media (max-width: 768px) {
+    .phrase {
+        font-size: 1.1em;
+        padding: 0 20px; /* adds breathing room for long text */
+    }
+}
+
+/* Very small screens */
+@media (max-width: 480px) {
+    .phrase {
+        font-size: 1em;
+        padding: 0 15px;
+    }
+}

@@ -1,0 +1,304 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Background */
+html, body {
+    width: 100%;
+    min-height: 100vh;
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+/* Navbar */
+.navbar {
+    width: 100%;
+    height: 60px;
+    background: rgba(99, 28, 123, 0.6);
+    backdrop-filter: blur(4px);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.nav-brand {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center; /* added */
+    gap: 15px;
+}
+
+.nav-links a {
+    color: white;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+.volume-control {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-left: 15px;
+}
+
+.volume-control input {
+    width: 80px;
+}
+
+
+/* Mobile hamburger */
+.hamburger {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+#toggle-menu {
+    display: none;
+}
+
+/* Responsive */
+@media (max-width: 650px) {
+    .hamburger {
+        display: block;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        height: auto;
+        display: block;
+        background: rgba(167, 111, 186, 0.6);
+        backdrop-filter: blur(4px);
+        padding: 10px 0;
+        transform: translateY(-200%);
+        transition: 0.3s ease;
+        text-align: center;
+    }
+
+    .nav-links li {
+        padding: 10px 0;
+    }
+
+    #toggle-menu:checked ~ .nav-links {
+        transform: translateY(0);
+    }
+}
+
+/* Pulsing animation */
+@keyframes pulse {
+    0%   { transform: scale(1); opacity: 1; }
+    50%  { transform: scale(1.3); opacity: 0.7; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* Icon styles */
+#volume-icon {
+    cursor: pointer;
+    display: inline-block;
+    transition: opacity 0.3s;
+}
+
+/* When audio is playing */
+#volume-icon.playing {
+    animation: pulse 1s infinite;
+    opacity: 1;
+}
+
+/* When muted */
+#volume-icon.muted {
+    animation: none;
+    opacity: 0.4;
+}
+
+/* ===== NEW STYLES FOR EXPERIENCE SECTION ===== */
+
+/* Header for title and date */
+.experience-header {
+    display: flex;
+    justify-content: space-between; /* Pushes title and date apart */
+    align-items: center;
+    border-bottom: 1px solid #ccc; /* Separator line */
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.experience-title {
+    font-size: 1.5rem;
+    color: #000000;
+    font-weight: bold;
+}
+
+.experience-date {
+    font-size: 1rem;
+    color: #000000;
+    font-style: italic;
+    white-space: nowrap; /* Prevents date from wrapping on smaller screens */
+    margin-left: 15px;
+}
+
+.experience-description {
+    font-size: 1rem;
+    color: #000000;
+    line-height: 1.6;
+}
+
+/* Adjust layout for smaller screens */
+@media (max-width: 650px) {
+    .experience-header {
+        flex-direction: column; /* Stack title and date vertically */
+        align-items: flex-start; /* Align to the left */
+        gap: 5px;
+    }
+
+    .experience-date {
+        margin-left: 0;
+    }
+}
+
+/* ===== NEW STYLES FOR SUB-NAVIGATION INDEX ===== */
+.sub-nav {
+    position: fixed;
+    top: 60px; /* Position it right below the main navbar */
+    left: 0;
+    width: 100%;
+    background: rgba(57, 17, 74, 0.4);
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 10px 0;
+    z-index: 9; /* Below the main navbar but above the content */
+}
+
+.sub-nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.sub-nav a:hover {
+    background-color: rgba(40, 125, 36, 0.2);
+}
+
+/* ===== NEW STYLES FOR CONTENT SECTIONS ===== */
+.content-section {
+    width: 100%;
+    /* The scroll-margin-top provides space between the top of the section
+       and the viewport top edge, so the sub-nav doesn't hide the title */
+    scroll-margin-top: 120px;
+}
+
+/* ===== STYLES FOR FONT CONTROLS ===== */
+
+.section-title {
+    background: #134b0e;
+    color: rgb(212, 148, 230);
+    font-size: 2.5rem;
+    text-align: center; /* This still centers the main title "Jobs" / "Education" */
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(63, 9, 84, 0.5);
+    position: relative; /* Crucial for positioning the controls */
+    padding: 10px 0;
+}
+
+.font-controls {
+    /* Position to the far right */
+    position: absolute;
+    right: 3%; /* Aligns with the main content padding */
+    top: 50%;
+    transform: translateY(-50%); /* Centers vertically */
+
+    /* Arrange text and arrows horizontally */
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Space between "Change font size" and the arrows */
+
+    /* Style the text itself */
+    font-size: 1.5rem; /* Smaller font size for the control text */
+    font-weight: 400; /* Normal font weight */
+    color: white; /* Make the text white to match the arrows */
+    text-shadow: none; /* Remove the text shadow from the control */
+}
+
+.arrow {
+    cursor: pointer;
+    font-size: 1.2rem;
+    line-height: 1;
+    padding: 2px 5px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+    display: flex; /* Helps with vertical alignment on some browsers */
+    align-items: center;
+}
+
+.arrow:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+/* === MODIFIED STYLES (Update these existing rules) === */
+
+/* Main Content Area */
+.content-area {
+    /* Top padding accounts for both navbars */
+    padding: 130px 3% 20px; /* USE PERCENTAGE for side padding */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Increased gap between the main sections */
+    gap: 50px;
+    width: 100%;
+}
+
+/* The semi-transparent container */
+.experience-item {
+    background: rgba(254, 244, 244, 0.85);
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+    padding: 25px 30px; /* Slightly increased padding for better spacing */
+    width: 100%; /* Make items fill their container */
+    max-width: none; /* REMOVE the max-width limit */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Add a small margin between items inside the same section */
+    margin-bottom: 20px;
+}
+
+/* Ensure the last item in a section doesn't have extra margin */
+.experience-item:last-child {
+    margin-bottom: 0;
+}
+
+#AERTEC {
+    background: #c3d3ef;
+}

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marta Granado's page</title>
+    <link rel="stylesheet" href="expStyle.css">
+</head>
+<body>
+
+    <img src="expBG.jpg" alt="Background numbers" class="background">
+
+    <nav class="navbar">
+        <div class="nav-brand">My Experience</div>
+        <input type="checkbox" id="toggle-menu">
+        <label for="toggle-menu" class="hamburger">&#9776;</label>
+
+        <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../About-me/MeIndex.html">About me</a></li>
+            <li><a href="../Portfolio/PortfolioIndex.html">Portfolio</a></li>
+            <li><a href="../Contact/ContactIndex.html">Contact</a></li>
+        </ul>
+
+        <div class="volume-control">
+            <span id="volume-icon" for="volume">🔊</span>
+            <input type="range" id="volume" min="0" max="1" step="0.01">
+        </div>
+    </nav>
+
+    <nav class="sub-nav">
+        <a href="#jobs">Jobs</a>
+        <a href="#education">Education</a>
+    </nav>
+
+    <main class="content-area">
+        <!-- ===== JOBS SECTION ===== -->
+        <section id="jobs" class="content-section">
+            <h1 class="section-title">
+                Jobs
+                <!-- NEW FONT SIZE CONTROLS -->
+                <span class="font-controls">
+                    Change font size
+                    <span class="arrow" onclick="changeFontSize('jobs', 'up')">⬆️</span>
+                    <span class="arrow" onclick="changeFontSize('jobs', 'down')">⬇️</span>
+                </span>
+            </h1>
+            <div class="experience-item" id="AERTEC">
+                <div class="experience-header">
+                    <div class="title-container">
+                        <h2 class="experience-title">AERTEC SOLUTIONS</h2>
+                        <h3 class="experience-subtitle">Software Department</h3>
+                    </div>
+                    <span class="experience-date">March - September 2025</span>
+                </div>
+                <p class="experience-description">
+                    Develop projects combining C, Python, XState, Arduino, Logic Analyzers, and Raspberry Pi Pico. Implement a C code generator based on state machines defined with XState and automated using Python. Work with analog-to-digital conversions (ADCs), evaluating them using Logic Analyzers and a Raspberry Pi Pico. Create Python applications for signal visualization, such as a digital oscilloscope. Use Arduinos along with Logic Analyzers to validate communication and response times.
+                </p>
+            </div>
+        </section>
+
+        <!-- ===== EDUCATION SECTION ===== -->
+        <section id="education" class="content-section">
+            <h1 class="section-title">
+                Education
+                <!-- NEW FONT SIZE CONTROLS -->
+                <span class="font-controls">
+                    Change font size
+                    <span class="arrow" onclick="changeFontSize('education', 'up')">⬆️</span>
+                    <span class="arrow" onclick="changeFontSize('education', 'down')">⬇️</span>
+                </span>
+            </h1>
+            <div class="experience-item">
+                <div class="experience-header">
+                     <div class="title-container">
+                        <h2 class="experience-title">University of Málaga</h2>
+                        <h3 class="experience-subtitle">Software Engineer</h3>
+                    </div>
+                    <span class="experience-date">2021 - 2025</span>
+                </div>
+                <p class="experience-description">
+                    Skilled in C and Python programming, object-oriented design, data structures, and algorithms. Experienced in software engineering, including requirements, modeling, testing, and project management. Knowledgeable in operating systems, concurrency, embedded and mobile systems, and computer architecture. Familiar with databases, web development, networks, distributed systems, and application security. Strong foundation in mathematics, discrete algebra, statistics, and formal methods. Experienced with user interfaces, digital systems, logic analysis, and embedded device programming.
+                </p>
+            </div>
+            <div class="experience-item">
+                <div class="experience-header">
+                     <div class="title-container">
+                        <h2 class="experience-title">Santa Rosa de Lima</h2>
+                        <h3 class="experience-subtitle">Technological Bachelor's Degree</h3>
+                    </div>
+                    <span class="experience-date">2019 - 2021</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Background music -->
+    <audio id="bg-music" src="music.mp3" autoplay loop></audio>
+
+    <!--Volume control script from expScript.js-->
+    <script src="expScript.js"></script>
+</body>
+</html>
