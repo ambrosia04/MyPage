@@ -197,7 +197,7 @@ button:hover {
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap; /* Allows buttons to wrap on very small screens */
-    gap: 15px; /* Added a bit more space for tablet view */
+    gap: 25px; /* Added a bit more space for tablet view */
     width: 100%;
     margin-top: 20px;
 }
@@ -243,9 +243,8 @@ button:hover {
 /* Default (desktop) */
 .phrase {
     font-size: clamp(1em, 2.5vw, 1.5em);
-    max-width: 800px;
+    max-width: 500px;
     line-height: 1.4;
-    margin-top: 15px;
     margin-bottom: 40px;
 }
 
@@ -274,4 +273,75 @@ button:hover {
         font-size: 1em;
         padding: 0 15px;
     }
+}
+
+/* --- Fix for Small Screens (iPhone SE, etc) --- */
+@media (max-width: 380px) {
+    
+    /* 1. ALLOW SCROLLING */
+    body, html {
+        overflow-y: auto !important;
+        height: auto;
+    }
+
+    /* 2. FIX VERTICAL ALIGNMENT (Prevents head cut-off) */
+    #main-content {
+        justify-content: flex-start; /* Start from top */
+        padding-top: 70px; /* Push content down from top edge */
+        padding-bottom: 30px;
+        height: auto;
+        min-height: 100vh;
+    }
+
+    /* 3. RESIZE PROFILE IMAGE */
+    .profile-wrapper {
+        width: 140px; /* Smaller image */
+        margin-top: 0;
+        margin-bottom: 10px;
+        flex-shrink: 0;
+    }
+
+    .profile-frame {
+        scale: 1.25; /* Shrink leaves slightly */
+    }
+
+    /* 4. RESIZE TEXT */
+    #main-content h1 {
+        font-size: 2rem; /* Smaller title */
+        margin: 5px 0 10px 0;
+        line-height: 1.1;
+    }
+
+    .phrase {
+        font-size: 0.95rem; /* Smaller description */
+        margin-bottom: 20px;
+        padding: 0 10px;
+    }
+
+    /* 5. BUTTONS IN A SQUARE/GRID LAYOUT */
+    #navbar {
+        display: flex;
+        flex-direction: row; /* Horizontal alignment */
+        flex-wrap: wrap;     /* Allow buttons to wrap to next line */
+        justify-content: center; /* Center them */
+        gap: 10px;           /* Space between buttons */
+        width: 100%;
+        max-width: 320px;    /* Keep the group compact */
+    }
+
+    #navbar button {
+        width: 45%;          /* Fits 2 buttons per row */
+        height: 55px;        /* Smaller height */
+        font-size: 16px;     /* Smaller text */
+        padding: 5px;
+        border-radius: 12px;
+    }
+    
+    /* Optional: Make the 3rd button (Portfolio) full width if you want 
+       (Uncomment below if you prefer the bottom button to be wide) */
+    /* 
+    #navbar button:last-child {
+        width: 92%; 
+    } 
+    */
 }
